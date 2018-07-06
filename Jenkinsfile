@@ -21,7 +21,7 @@ pipeline {
           container('maven') {
             sh "mvn versions:set -DnewVersion=$PREVIEW_VERSION"
             sh "mvn install"
-            sh 'export VERSION=$PREVIEW_VERSION && skaffold run -f skaffold.yaml'
+            sh 'export VERSION=$PREVIEW_VERSION && skaffold build -f skaffold.yaml'
           }
 
           dir ('./charts/preview') {
@@ -55,7 +55,7 @@ pipeline {
           container('maven') {
             sh 'mvn clean deploy'
 
-            sh 'export VERSION=`cat VERSION` && skaffold run -f skaffold.yaml'
+            sh 'export VERSION=`cat VERSION` && skaffold build -f skaffold.yaml'
           }
         }
       }
