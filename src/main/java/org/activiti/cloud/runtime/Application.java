@@ -13,7 +13,6 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @SpringBootApplication
 @ActivitiRuntimeBundle
 @EnableBinding({ProcessEngineChannels.class, CampaignMessageChannels.class, RewardMessageChannels.class})
-@EnableDiscoveryClient
 public class Application  {
 
 

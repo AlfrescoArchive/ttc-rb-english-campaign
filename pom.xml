@@ -9,7 +9,7 @@
   <name>Activiti Cloud :: Twitter Campaign (English)</name>
   <properties>
     <java.version>1.8</java.version>
-    <activiti.cloud.version>7-201803-EA-SNAPSHOT</activiti.cloud.version>
+    <activiti.cloud.version>7.0.0.Beta1</activiti.cloud.version>
     <maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
   </properties>
   <dependencyManagement>
@@ -125,30 +125,4 @@
       </plugin>
     </plugins>
   </build>
-	<repositories>
-    <repository>
-      <id>spring-milestones</id>
-      <name>Spring Milestones</name>
-      <url>https://repo.spring.io/milestone/</url>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-    </repository>
-    <repository>
-      <id>spring-snapshots</id>
-      <name>Spring Snapshots</name>
-      <url>https://repo.spring.io/snapshot/</url>
-      <releases>
-        <enabled>false</enabled>
-      </releases>
-    </repository>
-    <repository>
-      <id>activiti-snapshots</id>
-      <name>Activiti Snapshots</name>
-      <url>https://artifacts.alfresco.com/nexus/content/repositories/activiti-snapshots/</url>
-      <releases>
-        <enabled>false</enabled>
-      </releases>
-    </repository>
-  </repositories>
 </project>
