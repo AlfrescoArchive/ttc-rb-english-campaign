@@ -11,6 +11,8 @@ global:
       value: guest
     password:
       value: guest
+  keycloak:
+    url: ""
 db:
   uri: ""
 javaOpts:
