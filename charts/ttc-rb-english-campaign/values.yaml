@@ -11,6 +11,8 @@ global:
       value: guest
     password:
       value: guest
+  keycloak:
+    url: ""
 db:
   uri: ""
 javaOpts:
@@ -37,10 +39,10 @@ resources:
     memory: 768Mi
 probePath: /actuator/health
 livenessProbe:
-  initialDelaySeconds: 180
+  initialDelaySeconds: 300
   periodSeconds: 10
   successThreshold: 1
-  timeoutSeconds: 1
+  timeoutSeconds: 4
 readinessProbe:
   periodSeconds: 190
   successThreshold: 1

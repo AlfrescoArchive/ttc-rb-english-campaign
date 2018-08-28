@@ -29,6 +29,8 @@ spec:
           value: {{ .Values.global.rabbitmq.username.value }}
         - name: SPRING_RABBITMQ_PASSWORD
           value: {{ .Values.global.rabbitmq.password.value }}
+        - name: ACT_KEYCLOAK_URL
+          value: "{{ .Values.global.keycloak.url }}"
 #        - name: ACT_RB_DB_URI
 #        {{- if .Values.db.uri }}
 #          value: {{ .Values.db.uri }}
