@@ -9,13 +9,14 @@
   <name>Activiti Cloud :: Twitter Campaign (English)</name>
   <properties>
     <java.version>1.8</java.version>
-    <activiti.cloud.version>7.0.0.Beta1</activiti.cloud.version>
+    <activiti.cloud.version>7.0.0-SNAPSHOT</activiti.cloud.version>
+    <spring-boot.version>2.0.4.RELEASE</spring-boot.version>
     <maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
   </properties>
   <dependencyManagement>
     <dependencies>
       <dependency>
-        <groupId>org.activiti.cloud</groupId>
+        <groupId>org.activiti.cloud.dependencies</groupId>
         <artifactId>activiti-cloud-dependencies</artifactId>
         <version>${activiti.cloud.version}</version>
         <scope>import</scope>
@@ -25,16 +26,15 @@
   </dependencyManagement>
   <dependencies>
     <dependency>
-      <groupId>org.activiti.cloud</groupId>
+      <groupId>org.activiti.cloud.common</groupId>
       <artifactId>activiti-cloud-services-common-security-keycloak</artifactId>
-      <version>${activiti.cloud.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.activiti.cloud</groupId>
+      <groupId>org.activiti.cloud.rb</groupId>
       <artifactId>activiti-cloud-starter-runtime-bundle</artifactId>
       <exclusions>
         <exclusion>
-          <groupId>org.activiti.cloud</groupId>
+          <groupId>org.activiti.cloud.common</groupId>
           <artifactId>activiti-cloud-services-identity-keycloak</artifactId>
         </exclusion>
         <exclusion>
@@ -48,7 +48,7 @@
       <artifactId>spring-cloud-kubernetes-discovery</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.activiti.cloud</groupId>
+      <groupId>org.activiti.cloud.common</groupId>
       <artifactId>activiti-cloud-services-tracing</artifactId>
     </dependency>
     <dependency>
@@ -64,7 +64,7 @@
       <artifactId>activiti-engine</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.activiti.cloud</groupId>
+      <groupId>org.activiti.cloud.rb</groupId>
       <artifactId>activiti-cloud-services-events</artifactId>
     </dependency>
     <!--<dependency>-->
@@ -115,6 +115,7 @@
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
+        <version>${spring-boot.version}</version>
         <executions>
           <execution>
             <goals>
