@@ -9,7 +9,7 @@
   <name>Activiti Cloud :: Twitter Campaign (English)</name>
   <properties>
     <java.version>1.8</java.version>
-    <activiti.cloud.version>7.0.27</activiti.cloud.version>
+    <activiti.cloud.version>7.0.30</activiti.cloud.version>
     <spring-boot.version>2.0.4.RELEASE</spring-boot.version>
     <maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
   </properties>
