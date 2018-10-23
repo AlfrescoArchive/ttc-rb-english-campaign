@@ -1,51 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<!--
-  ~ Copyright 2018 Alfresco, Inc. and/or its affiliates.
-  ~
-  ~ Licensed under the Apache License, Version 2.0 (the "License");
-  ~ you may not use this file except in compliance with the License.
-  ~ You may obtain a copy of the License at
-  ~
-  ~       http://www.apache.org/licenses/LICENSE-2.0
-  ~
-  ~ Unless required by applicable law or agreed to in writing, software
-  ~ distributed under the License is distributed on an "AS IS" BASIS,
-  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  ~ See the License for the specific language governing permissions and
-  ~ limitations under the License.
-  -->
-
-<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath"
-             targetNamespace="http://www.activiti.org/processdef"
-             xmlns:activiti="http://activiti.org/bpmn">
-
-  <process id="tweet-prize" name="tweet-prize">
-
-
-    <startEvent id="start"/>
-    <sequenceFlow id="flow1" sourceRef="start" targetRef="serviceTaskRank"/>
-
-    <serviceTask id="serviceTaskRank" name="Get Ranking for Authors" implementation="Get Top Authors Ranked"/>
-
-    <sequenceFlow id="flow2" sourceRef="serviceTaskRank" targetRef="serviceTaskCreateReward"/>
-
-
-    <serviceTask id="serviceTaskCreateReward" name="Create Rewards" implementation="CreateRewardToWinners">
-    </serviceTask>
-
-    <sequenceFlow id="flow3" sourceRef="serviceTaskCreateReward" targetRef="serviceTaskTweetRewards"/>
-
-    <serviceTask id="serviceTaskTweetRewards" name="Tweet to Winners" implementation="TweetRewards">
-    </serviceTask>
-
-    <sequenceFlow id="flow4" sourceRef="serviceTaskTweetRewards" targetRef="end"/>
-
-    <endEvent name="Tweet Ranks were published" id="end"/>
-
-
-
-  </process>
-
-</definitions>
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="sample-diagram" targetNamespace="http://bpmn.io/schema/bpmn" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd">
+  <bpmn2:process id="tweetprize-ad96498f-36dd-4075-a4b8-2367b2d49c54" name="tweet-prize" isExecutable="true">
+    <bpmn2:documentation />
+    <bpmn2:startEvent id="StartEvent_1">
+      <bpmn2:outgoing>SequenceFlow_0ovgv4f</bpmn2:outgoing>
+    </bpmn2:startEvent>
+    <bpmn2:sequenceFlow id="SequenceFlow_0ovgv4f" sourceRef="StartEvent_1" targetRef="Task_01qv35a" />
+    <bpmn2:serviceTask id="Task_01qv35a" name="Get Ranking for Authors" implementation="Get Top Authors Ranked">
+      <bpmn2:incoming>SequenceFlow_0ovgv4f</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_0cdulds</bpmn2:outgoing>
+    </bpmn2:serviceTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_0cdulds" sourceRef="Task_01qv35a" targetRef="Task_0mwau71" />
+    <bpmn2:serviceTask id="Task_0mwau71" name="Create Rewards" implementation="CreateRewardToWinners">
+      <bpmn2:incoming>SequenceFlow_0cdulds</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_0c0uo8t</bpmn2:outgoing>
+    </bpmn2:serviceTask>
+    <bpmn2:sequenceFlow id="SequenceFlow_0c0uo8t" sourceRef="Task_0mwau71" targetRef="Task_0rndcbk" />
+    <bpmn2:endEvent id="EndEvent_1kwfv9s" name="Tweet Ranks were published">
+      <bpmn2:incoming>SequenceFlow_0jdsu7j</bpmn2:incoming>
+    </bpmn2:endEvent>
+    <bpmn2:sequenceFlow id="SequenceFlow_0jdsu7j" sourceRef="Task_0rndcbk" targetRef="EndEvent_1kwfv9s" />
+    <bpmn2:serviceTask id="Task_0rndcbk" name="Tweet to Winners" implementation="TweetRewards">
+      <bpmn2:incoming>SequenceFlow_0c0uo8t</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_0jdsu7j</bpmn2:outgoing>
+    </bpmn2:serviceTask>
+  </bpmn2:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="tweetprize-ad96498f-36dd-4075-a4b8-2367b2d49c54">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="134" y="218" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="107" y="254" width="90" height="20" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_0ovgv4f_di" bpmnElement="SequenceFlow_0ovgv4f">
+        <di:waypoint x="170" y="236" />
+        <di:waypoint x="220" y="236" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="195" y="214.5" width="0" height="13" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="ServiceTask_0wdzu33_di" bpmnElement="Task_01qv35a">
+        <dc:Bounds x="220" y="196" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_0cdulds_di" bpmnElement="SequenceFlow_0cdulds">
+        <di:waypoint x="320" y="236" />
+        <di:waypoint x="370" y="236" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="345" y="214.5" width="0" height="13" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="ServiceTask_1s13ixy_di" bpmnElement="Task_0mwau71">
+        <dc:Bounds x="370" y="196" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_0c0uo8t_di" bpmnElement="SequenceFlow_0c0uo8t">
+        <di:waypoint x="470" y="236" />
+        <di:waypoint x="520" y="236" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="495" y="214.5" width="0" height="13" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="EndEvent_1kwfv9s_di" bpmnElement="EndEvent_1kwfv9s">
+        <dc:Bounds x="670" y="218" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="651" y="257" width="74" height="25" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_0jdsu7j_di" bpmnElement="SequenceFlow_0jdsu7j">
+        <di:waypoint x="620" y="236" />
+        <di:waypoint x="670" y="236" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="645" y="214.5" width="0" height="13" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="ServiceTask_0lww8b1_di" bpmnElement="Task_0rndcbk">
+        <dc:Bounds x="520" y="196" width="100" height="80" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn2:definitions>
