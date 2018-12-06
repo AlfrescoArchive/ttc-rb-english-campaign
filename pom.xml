@@ -10,7 +10,7 @@
   <properties>
     <java.version>1.8</java.version>
     <activiti-cloud-dependencies.version>7.0.97</activiti-cloud-dependencies.version>
-    <spring-boot.version>2.0.4.RELEASE</spring-boot.version>
+    <spring-boot.version>2.1.0.RELEASE</spring-boot.version>
     <maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
   </properties>
   <dependencyManagement>
@@ -122,6 +122,14 @@
       <id>activiti-releases</id>
       <name>Activiti Releases</name>
       <url>https://artifacts.alfresco.com/nexus/content/repositories/activiti-releases/</url>
+    </repository>
+    <repository>
+        <id>spring-milestones</id>
+        <name>Spring Milestones</name>
+        <url>https://repo.spring.io/milestone/</url>
+        <snapshots>
+            <enabled>false</enabled>
+        </snapshots>
     </repository>
   </repositories>
 </project>
