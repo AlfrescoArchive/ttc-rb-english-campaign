@@ -56,6 +56,8 @@ pipeline {
             sh 'mvn clean deploy'
 
             sh 'export VERSION=`cat VERSION` && skaffold build -f skaffold.yaml'
+            sh "jx step post build --image $DOCKER_REGISTRY/$ORG/$APP_NAME:\$(cat VERSION)"
+            sh "updatebot push-regex -r "\s+tag: (.*)" -v \$(cat VERSION) --previous-line "\s+repository: activiti/ttc-rb-english-campaign" **/values.yaml) --merge false"
           }
         }
       }
