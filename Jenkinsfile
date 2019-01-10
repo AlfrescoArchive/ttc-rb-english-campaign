@@ -34,12 +34,12 @@ pipeline {
       }
       stage('Build Release') {
         when {
-          branch 'develop'
+          branch 'master'
         }
         steps {
           container('maven') {
             // ensure we're not on a detached head
-            sh "git checkout develop"
+            sh "git checkout master"
             sh "git config --global credential.helper store"
             sh "jx step validate --min-jx-version 1.1.73"
             sh "jx step git credentials"
@@ -57,13 +57,13 @@ pipeline {
 
             sh 'export VERSION=`cat VERSION` && skaffold build -f skaffold.yaml'
             sh "jx step post build --image $DOCKER_REGISTRY/$ORG/$APP_NAME:\$(cat VERSION)"
-            //sh './updatebot.sh'
+            sh './updatebot.sh'
           }
         }
       }
       stage('Promote to Environments') {
         when {
-          branch 'develop'
+          branch 'master'
         }
         steps {
           dir ('./charts/ttc-rb-english-campaign') {
