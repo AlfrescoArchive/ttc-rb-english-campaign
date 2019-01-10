@@ -57,7 +57,6 @@ pipeline {
 
             sh 'export VERSION=`cat VERSION` && skaffold build -f skaffold.yaml'
             sh "jx step post build --image $DOCKER_REGISTRY/$ORG/$APP_NAME:\$(cat VERSION)"
-            sh './updatebot.sh'
           }
         }
       }
@@ -71,7 +70,7 @@ pipeline {
               sh 'jx step changelog --version v\$(cat ../../VERSION)'
               // release the helm chart
               sh 'make release'
-
+              sh './updatebot.sh'
               // promote through all 'Auto' promotion Environments
               sh 'jx promote -b --all-auto --timeout 1h --version \$(cat ../../VERSION)'
             }
