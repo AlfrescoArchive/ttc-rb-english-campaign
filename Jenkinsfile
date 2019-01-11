@@ -24,12 +24,12 @@ pipeline {
             sh 'export VERSION=$PREVIEW_VERSION && skaffold build -f skaffold.yaml'
           }
 
-          dir ('./charts/preview') {
-           container('maven') {
-             sh "make preview"
-             sh "jx preview --app $APP_NAME --dir ../.."
-           }
-          }
+          //dir ('./charts/preview') {
+          // container('maven') {
+          //   sh "make preview"
+          //   sh "jx preview --app $APP_NAME --dir ../.."
+          // }
+          //}
         }
       }
       stage('Build Release') {
