@@ -51,7 +51,7 @@ public class CampaignService {
                  3);
         vars.put("top",
                  new ArrayList<>());
-        runtimeService.startProcessInstanceByKey("tweet-prize",
+        runtimeService.startProcessInstanceByKey("tweetprize-ad96498f-36dd-4075-a4b8-2367b2d49c54",
                                                  vars);
     }
 }
