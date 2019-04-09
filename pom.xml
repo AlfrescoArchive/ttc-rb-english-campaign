@@ -14,7 +14,7 @@
   <name>Activiti Cloud :: Twitter Campaign (English)</name>
   <properties>
     <java.version>11</java.version>
-    <activiti-cloud-dependencies.version>7.1.41</activiti-cloud-dependencies.version>
+    <activiti-cloud-dependencies.version>7.1.42</activiti-cloud-dependencies.version>
     <maven.compiler.source>${java.version}</maven.compiler.source>
     <maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
     <maven.compiler.target>${java.version}</maven.compiler.target>
